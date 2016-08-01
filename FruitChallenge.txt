@@ -1,0 +1,38 @@
+You have 50 pieces of fruit in a box, you must place them on tables in columns. 
+	- Each table can only have 3 columns of fruit with 5 pieces of fruit each. 
+	- Each column can only have 2 of the same pieces of fruit. 
+
+Write a program to tell me: 
+	- How many tables of fruit I will have at the end of the exercise.
+	- What fruit is in each column on each table.
+	- A count of the number of each fruit on the table. 
+
+The list of fruit is attached in a txt file, you must read in the file using your python code.
+
+Example representation of a correct table:
+
+----------------------------
+| Apple  | Banana | Orange |
+----------------------------
+| Apple  | Peach  | Peach  |
+----------------------------
+| Orange | Pear   | Peach  |
+----------------------------
+| Banana | Apple  | Pear   |
+----------------------------
+| Pear   | Orange | Apple  |
+----------------------------
+
+Example representation of an incorrect table:
+
+----------------------------
+| Apple  | Orange |	   |
+----------------------------
+| Apple  | Peach  |	   |
+----------------------------
+| Apple  | Peach  |	   |
+----------------------------
+| Banana | Pear   |	   |
+----------------------------
+| Pear   | Apple  |	   |
+----------------------------
