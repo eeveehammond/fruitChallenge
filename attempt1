@@ -1,0 +1,28 @@
+input_file = open(r"fruitChallenge/Fruit copy.txt")
+input_file = input_file.readlines()
+table1 = input_file[0:15]
+table2 = input_file[15:30]
+table3 = input_file[30:46]
+table4 = input_file[46:]
+
+def fruitCount(lst):
+    lst.count('apple')
+    
+
+def printTables(list):   
+    j=0    
+    for i in list:
+        list[j]=i.rstrip('\n')
+        j+=1
+    print(r'----------------------------'+ '\n'+'|'+list[0].center(8)+'|'+list[1].center(8)+'|'+list[2].center(8)+'|'+
+    '\n----------------------------'+'\n'+'|'+list[3].center(8)+'|'+list[4].center(8)+'|'+list[5].center(8)+'|'+
+    '\n----------------------------'+'\n'+'|'+list[6].center(8)+'|'+list[7].center(8)+'|'+list[8].center(8)+'|'+
+    '\n----------------------------'+'\n'+'|'+list[9].center(8)+'|'+list[10].center(8)+'|'+list[11].center(8)+'|'+
+    '\n----------------------------'+'\n'+'|'+list[12].center(8)+'|'+list[13].center(8)+'|'+list[14].center(8)+'|'+
+    '\n----------------------------')
+               
+    
+printTables(table1)
+printTables(table2)
+printTables(table3)
+print(table4)
