@@ -1,0 +1,97 @@
+# Import Counter method and sys
+from collections import Counter
+import sys
+
+#Store text from file into a list of strings in input_file
+input_file = open(r"/Users/eve/Desktop/PythonPrograms/Documents/Fruit copy.txt")
+input_file = input_file.readlines()
+
+#Strip the strings so that the \n character is removed
+j=0    
+for i in input_file:
+    input_file[j]=i.rstrip('\n')
+    j+=1
+
+# Make sure it isn't a blank string and that everything is alpha
+j=0
+for i in input_file:
+    if input_file[j].isspace():
+        print('This program is for fruit, not space. Try again.')
+        break
+        sys.exit()
+    elif not input_file:                                           # this part doesn't work yet for some reason
+        print('Oops. There doesn\'t seem to be anything there.')
+        break
+        sys.exit()
+
+#Check if everything entered is alpha
+j=0
+for i in input_file:    
+    if input_file[j].isalpha():
+        j+=1
+        continue
+    else:
+        print('Numbers are not fruit. Try again.')
+        sys.exit()
+        
+# Convert everything to Title case
+j=0
+for i in input_file:
+    input_file[j]=input_file[j].title()
+    j+=1
+    continue
+    
+# Make sure there's at least 15 items
+if len(input_file)<15:
+    print('You don\'t have enough items to make a table')
+    sys.exit()
+      
+    
+# Split the list into sublists of 15
+chunks = [input_file[x:x+15] for x in range(0, len(input_file), 15)]
+
+
+# Make sure the list doesn't have too much of the same item
+j=0
+for v in Counter(chunks[j]).values():  
+    while j < len(chunks):
+        if v > 6:
+            print('You have too many of one item')
+            j+=1
+            sys.exit()
+        else:
+            break
+            
+# Sort chunks
+j=0
+while j<len(chunks):
+    chunks[j].sort()
+    j+=1
+
+# Print the tables
+j=0
+while j<len(chunks)-1:
+    print(r'----------------------------'+ '\n' + '|' + chunks[j][0].center(8) + '|' + chunks[j][1].center(8) + '|' + chunks[j][2].center(8)+'|'+
+    '\n----------------------------'+ '\n' + '|' + chunks[j][3].center(8) +'|'+chunks[j][4].center(8)+'|'+chunks[j][5].center(8)+'|'+
+    '\n----------------------------'+ '\n' + '|' + chunks[j][6].center(8) +'|'+chunks[j][7].center(8)+'|'+chunks[j][8].center(8)+'|'+
+    '\n----------------------------'+ '\n' + '|' + chunks[j][9].center(8) +'|'+chunks[j][10].center(8)+'|'+chunks[j][11].center(8)+'|'+
+    '\n----------------------------'+ '\n' + '|' + chunks[j][12].center(8) +'|'+chunks[j][13].center(8)+'|'+chunks[j][14].center(8)+'|'+
+    '\n----------------------------')
+    j+=1
+
+# Increment j to the last string in the list
+j=len(chunks)-1
+
+# Check last list to make sure it has enough to make a table
+if len(chunks[j])<15:
+    print('There aren\'t enough items remaining to make a table.')
+    print('You only have ' + str(len(chunks)-1) + ' items left. A table requires 15 items.')
+    sys.exit()
+else:
+    print(r'----------------------------'+ '\n' + '|' + chunks[-1][0].center(8) + '|' + chunks[-1][1].center(8) + '|' + chunks[-1][2].center(8)+'|'+
+    '\n----------------------------'+ '\n' + '|' + chunks[-1][3].center(8) +'|'+chunks[-1][4].center(8)+'|'+chunks[-1][5].center(8)+'|'+
+    '\n----------------------------'+ '\n' + '|' + chunks[-1][6].center(8) +'|'+chunks[-1][7].center(8)+'|'+chunks[-1][8].center(8)+'|'+
+    '\n----------------------------'+ '\n' + '|' + chunks[-1][9].center(8) +'|'+chunks[-1][10].center(8)+'|'+chunks[-1][11].center(8)+'|'+
+    '\n----------------------------'+ '\n' + '|' + chunks[-1][12].center(8) +'|'+chunks[-1][13].center(8)+'|'+chunks[-1][14].center(8)+'|'+
+    '\n----------------------------')
+    
